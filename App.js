@@ -5,20 +5,23 @@ import {Picker} from '@react-native-community/picker'
 
 
 export default function App() {
-  const [selectedValue, setSelectedValue] = React.useState("zero");
+  const [selectedGradeValue, setSelectedGradeValue] = React.useState(100);
+  let totalPoints = selectedGradeValue
   return (
     <View style={styles.container}>
       <Picker
-        selectedValue={selectedValue}
+        selectedValue={selectedGradeValue}
         style={{ height: 50, width: 150 }}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+        onValueChange={(itemValue, itemIndex) => setSelectedGradeValue(itemValue)}
       >
-        <Picker.Item label="5.0" value="zero" />
-        <Picker.Item label="5.1" value="one" />
-        <Picker.Item label="5.2" value="two" />
+        <Picker.Item label="5.5" value={100} />
+        <Picker.Item label="5.6" value={120} />
+        <Picker.Item label="5.7" value={140} />
       </Picker>
-      <StatusBar style="auto" />
+
+      <Text>Your total score: {totalPoints}</Text>
     </View>
+    
     
   );
 }
